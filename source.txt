@@ -1,0 +1,179 @@
+"Apeirophobia" by Kate Korb
+
+Release along with a website.
+Release along with an interpreter.
+Release along with the source text.
+
+Understand "examine self" or "look at self" or "look at hands" or "look at body" as examining self. Examining self is an action applying to nothing.
+Carry out examining self:
+	say "The more you try to connect with your own body, the more distant it feels. Like you’re wearing it, but it’s not truly yours...".
+
+Understand "talk" or "say" or "speak" or "yell" or "scream" or "shout" as talking. Talking is an action applying to nothing.
+Carry out talking:
+	say "You attempt to vocalize how you feel. It comes out as a muted murmur...";
+	increase grounding count by 1.
+
+Understand "wave" or "wave hands" as waving..
+Carry out waving:
+	say "Every movement is slow as if you're moving through a dense liquid, but you can't even feel it.".
+
+Understand "listen" or "hear" or "listen in" as listening. 
+Carry out listening:
+	say "Your heart races, yet there's no sound. Only the hollow, matte, deafening silence...".
+
+Eyes-open is a truth state that varies. Eyes-open is true.
+
+Understand "close my eyes", "shut my eyes", "seal my eyes", "cover my eyes", "block my vision", "blind myself", "darken my sight", "stop seeing", "turn off my vision", "avert my gaze", "close eyes" as closing the eyes.
+Understand "open my eyes", "uncover my eyes", "reveal my eyes", "expose my eyes", "see again", "look around", "stare into the void", "gaze outward", "take in the view", "face the brightness", "open eyes" as opening the eyes.
+
+Closing the eyes is an action applying to nothing.
+Opening the eyes is an action applying to nothing.
+
+Check closing the eyes:
+	if eyes-open is false:
+		say "Your eyes are already closed." instead.
+
+Carry out closing the eyes:
+	now eyes-open is false;
+	say "You close your eyes, shutting out the endless space around you. The oppressive brightness fades, and for a moment, you can almost pretend you are in the comfortable and familiar spaces of your day-to-day life. But then the silence and emptiness set in again, just as bad as with your eyes open.";
+	say "With your eyes closed, you feel the silence even more profoundly. It weighs on you, filling your thoughts with an aching loneliness that seeps into your bones.".
+
+Check opening the eyes:
+	if eyes-open is true:
+		say "Your eyes are already open." instead.
+
+Carry out opening the eyes:
+	now eyes-open is true;
+	say "You open your eyes, and the endless white void stretches before you, a blinding expanse of nothingness. It is everywhere, without shadow or form, and the sheer emptiness gnaws at your mind.";
+	say "The endless white void continues, unbroken and unyielding. Its brilliance is painful, devoid of color or comfort, stretching infinitely in all directions with no escape.".
+
+Understand "blink" or "blink again" as blinking. Blinking is an action applying to nothing.
+Blink count is a number that varies. Blink count is 0.
+
+Carry out blinking:
+	say "You close your eyes briefly, but when you open them, nothing has changed...";
+	increase blink count by 1.
+
+Instead of blinking when blink count is 2:
+	say "You blink rapidly, hoping something will change. But the void is indifferent to your desperation.";
+	now blink count is 0.
+
+Understand "walk" or "walking" or "stroll" or "move" as going.
+Carry out going:
+	say "You strain against the nothingness, but it resists, as if alive. You get nowhere in the empty expanse." instead.
+
+Calmness is a truth state that varies. Calmness is false.
+Grounding count is a number that varies. Grounding count is 0.
+
+Understand "lie down" or "lay down" or "sit down" or "sit" as lying down. Lying down is an action applying to nothing.
+Carry out lying down:
+	say "You lower yourself carefully, but instead of solid ground, there is only an endless nothingness beneath you. The sensation of weight dissipates, yet you remain, floating in an unseen space, craving something tangible.";
+	increase grounding count by 1.
+
+Understand "touch face" or "hold face" or "grip face" or "feel face" as touching face. Touching face is an action applying to nothing.
+Carry out touching face:
+	say "Your hands tremble as you reach out and gently touch your face, tracing your features with a mix of desperation and relief. The feeling of your skin, however strange, anchors you to the present moment.";
+	increase grounding count by 1.
+
+Understand "breathe" or "deep breath" or "inhale" or "exhale" as breathing. Breathing is an action applying to nothing.
+Carry out breathing:
+	say "You force yourself to take a slow, deliberate breath, each inhale feeling like a struggle, but you cling to the rhythm of each breath, using it as a lifeline to reality.";
+	increase grounding count by 1.
+
+Every turn when grounding count is 3:
+	say "A sense of calm washes over you as you realize you still exist, you're here, wherever here is. The panic slowly ebbs away.";
+	now calmness is true.
+
+Concentrating is a truth state that varies. Concentrating is false.
+Understand "concentrate" and "meditate" as concentrating. Concentrating is an action applying to nothing.
+Instead of concentrating:
+	if calmness is true:
+		say "You center yourself, focusing on the space around you.";
+		now concentrating is true;
+	otherwise:
+		say "Your thoughts are too scattered to concentrate."
+
+[Chapter 1 - The Light]
+
+The Light is a room.
+"Your eyes blink rapidly, a blinding white light filling your vision. You close your eyes tightly, desperately trying to block out the overwhelming brightness, but the pressure behind your eyelids intensifies. Your skin is numb, and your limbs feel far away, disconnected. 
+
+Questions race through your mind, but your thoughts are murky and incoherent. Only the relentless, jarring emptiness, the silence, and the unsettling sensation that you’re no longer alone in your own skin, or in your skin at all."
+
+The way forward is a door. The way forward is closed. The way forward is openable. The way forward is east of the Light and west of Beyond the Light.
+The way forward is scenery. 
+
+The Presence is a person in the Light. The Presence is scenery.
+
+The description of the Presence is "A formless entity, radiating an alien energy. It feels both distant and intimately close, as though it exists within and around you simultaneously. Its form shimmers, never settling into something you can fully comprehend."
+
+Instead of examining the Presence:
+	say "The emptiness stretches infinitely in every direction, yet it feels alive. It hums with an unsettling energy, as though it is aware of your presence. The sensation is not entirely hostile but deeply alien, as though you are intruding in a realm not meant for you. Its shifting form seems to echo your own uncertainty, a mirror of the chaos within."
+
+Instead of asking the Presence about a topic listed in the Table of Presence Responses:
+	repeat through the Table of Presence Responses:
+		if the topic understood matches the topic entry:
+			say "[response entry]";
+			rule succeeds;
+	say "The Presence’s hum grows deeper, almost contemplative. 'Your words drift like shadows. Speak with intention, or be consumed by the void.'"
+
+Table of Presence Responses
+Topic	Response
+"fear"	"The Presence’s energy pulses, resonating within you. 'Fear is a shadow, stretching into infinity. You must step into its depths and find what lies beyond.'"
+"doubt"	"The Presence ripples, its energy washing over you like a wave. 'Doubt frays the threads of your being. Trust in the unseen, or the void will claim you.'"
+"hope"	"The Presence glimmers faintly, as if responding to a spark within you. 'Hope is the quiet light amidst chaos. Feed it, and it will guide you through the shifting tides of this place.'"
+"loss"	"The Presence’s form shifts, becoming momentarily still. 'Loss echoes in this void, its weight pulling at you. Yet, even here, creation rises from destruction. Find what can be rebuilt.'"
+"strength"	"The Presence radiates an intense warmth, its energy coalescing around you. 'Strength bends and flows like water, shaping the unyielding. Embrace this, and you will endure.'"
+"identity"	"The Presence flickers, its energy wrapping around you. 'Who are you within this place? You are more than you remember, yet less than you seek. Discover yourself to unlock the path forward.'"
+"time"	"The Presence’s hum takes on a rhythmic quality, like a heartbeat. 'Time here is a river with no banks, flowing in all directions. It is yours to shape, if you understand its currents.'"
+
+Instead of going east in the Light when the way forward is closed and the Presence is in the Light:
+	say "The way forward remains sealed. The Presence’s energy sharpens, holding you in place. A low voice fills your mind, 'You are not ready. Face the truth within before you proceed.'";
+	stop the action.
+
+Instead of going east in the Light when the way forward is open:
+	say "As the Presence’s energy shifts, the door swings open, and you are drawn inexorably into the space beyond. Your feet move of their own accord, and the light envelops you. Shapes and whispers blur together as you cross the threshold.";
+	now the player is in Beyond the Light.
+	
+Beyond the Light is a room. "The space beyond is unlike anything you've seen. Darkness and light twist together, forming impossible shapes and fleeting images of memories that aren't your own. Sounds echo faintly, whispers in languages you almost understand."
+
+A fractured mirror is in Beyond the Light. The fractured mirror is a door. The description of the fractured mirror is "A mirror with jagged, broken edges. It seems to reflect not just your image but fragments of memories and emotions."
+
+Instead of examining the fractured mirror:
+	say "The mirror shows splintered reflections, some of which seem to move independently of you. As you focus, one of the shards sharpens, revealing a memory not your own. It whispers, 'Piece together what was lost.'"
+
+A swirling sigil is in Beyond the Light. The swirling sigil is fixed in place. The description of the swirling sigil is "A glowing, shifting sigil etched into the air. Its shape never settles, and its patterns seem to pull at the edges of your mind."
+
+Instead of touching the swirling sigil:
+	say "As your hand approaches the sigil, a pulse of energy pushes you back. It hums faintly, as though requiring something specific to activate."
+
+A memory fragment is a kind of thing. Three memory fragments are in Beyond the Light. Understand "shard" or "fragment" as a memory fragment.
+
+The silver shard is a memory fragment in Beyond the Light. The description of the silver shard is "A small fragment of light, shimmering faintly. It hums with an energy that feels familiar yet distant."
+
+The crimson shard is a memory fragment in Beyond the Light. The description of the crimson shard is "A shard pulsing with a deep red glow. It feels warm to the touch, as though it holds a fragment of something powerful."
+
+The azure shard is a memory fragment in Beyond the Light. The description of the azure shard is "A shard of deep blue, cool and soothing. It resonates with a quiet strength."
+
+Instead of inserting a memory fragment into the swirling sigil:
+	if the player encloses the silver shard and the player encloses the crimson shard and the player encloses the azure shard:
+		say "As you place the final shard into the sigil, it flares brightly, and the fractured mirror begins to glow. The pieces rearrange themselves, forming a coherent image that reveals a path forward. A low voice echoes in your mind, 'The fragments of your being align. Step forward with purpose.'";
+		now the fractured mirror is open;
+	otherwise:
+		say "The sigil pulses faintly but remains inert. More pieces are required."
+
+The fractured mirror is a door. The fractured mirror is closed. The fractured mirror is east of Beyond the Light and west of the Final Threshold.
+
+The Final Threshold is a room. "The air here is heavy with meaning, and the space seems to fold in on itself. Shapes and patterns stretch infinitely, and yet they feel confined within your grasp. You sense you are nearing the end of this strange journey, but the final truth remains just out of reach."
+
+A figure of resolve is a person in the Final Threshold. The description of the figure of resolve is "The figure stands tall, neither male nor female, cloaked in shifting light and shadow. Its presence exudes a quiet strength, as though it has been waiting for you."
+
+After examining the figure of resolve:
+	say "The figure’s gaze pierces through you, though its features are ever-changing. It speaks in a voice that resonates within your very being: 'You have come far, piecing together the fragments of your existence. Now, one final choice remains.'"
+
+After asking the figure of resolve about something:
+	say "The figure’s voice surrounds you. 'This is the end of the journey, but also the beginning. You must step forward and embrace the truth of who you are.'"
+
+Instead of going east in the Final Threshold:
+	say "With the figure’s words still echoing in your mind, you step forward. The light and darkness collapse into a single point, and you are filled with a sense of completion. The journey ends, and yet, it begins anew.";
+	end the story finally.
